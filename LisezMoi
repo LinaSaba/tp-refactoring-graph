@@ -1,2 +1,2 @@
 Le résultat de la question 6 semble différent des résultats de mes collègues ce qui n'est pas normal.
-En ce qui concerne la question 7, les tests ne fonctionnent pas à la fin et le 7/9 test bloque sur la fonction 'findPath' qui semble tourner à l'infini, donc la boucle (current = findNextVertex()) != null) tourne à l'infini à cause d'une erreur que j'ai pas réussi à résoudre.
+En ce qui concerne la question 7, les tests ne fonctionnent pas à la fin et le test 7/9 bloque sur la fonction 'findPath' qui semble tourner à l'infini, donc la boucle (current = findNextVertex()) != null) tourne à l'infini à cause d'une erreur que j'ai pas réussi à résoudre.
