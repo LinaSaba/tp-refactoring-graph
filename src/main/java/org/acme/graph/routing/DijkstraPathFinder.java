@@ -42,7 +42,7 @@ public class DijkstraPathFinder {
 			visit(current);
 			if (getNode(destination).getReachingEdge() != null) {
 				log.info("findPath({},{}) : path found", origin, destination);
-				return new Path(buildPath(destination));
+				return buildPath(destination);
 			}
 		}
 		log.info("findPath({},{}) : Path not found from '%s' to '%s'", origin, destination);
@@ -85,7 +85,7 @@ public class DijkstraPathFinder {
 	 * @param target
 	 * @return
 	 */
-	private List<Edge> buildPath(Vertex target) {
+	private Path buildPath(Vertex target) {
 		List<Edge> result = new ArrayList<>();
 
 		Edge current = getNode(target).getReachingEdge();
@@ -95,7 +95,7 @@ public class DijkstraPathFinder {
 		} while (current != null);
 
 		Collections.reverse(result);
-		return result;
+		return new Path(result);
 	}
 
 	/**
@@ -125,16 +125,17 @@ public class DijkstraPathFinder {
 		double minCost = Double.POSITIVE_INFINITY;
 		Vertex result = null;
 		for (Vertex vertex : graph.getVertices()) {
+			PathNode pathNode = this.getNode(vertex);
 			// sommet déjà visité?
-			if (getNode(vertex).isVisited()) {
+			if (pathNode.isVisited()) {
 				continue;
 			}
 			// sommet non atteint?
-			if (getNode(vertex).getCost() == Double.POSITIVE_INFINITY) {
+			if (pathNode.getCost() == Double.POSITIVE_INFINITY) {
 				continue;
 			}
 			// sommet le plus proche de la source?
-			if (getNode(vertex).getCost() < minCost) {
+			if (pathNode.getCost() < minCost) {
 				result = vertex;
 			}
 		}

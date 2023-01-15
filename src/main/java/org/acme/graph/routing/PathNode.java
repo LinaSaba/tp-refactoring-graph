@@ -10,6 +10,9 @@ public class PathNode {
     private boolean visited = false;
     Vertex vertex;
 
+    public PathNode(){
+    }
+
     public void setCost(double v) {
         this.cost = cost;
     }
@@ -23,7 +26,7 @@ public class PathNode {
     }
     @JsonIgnore
     public Edge getReachingEdge() {
-        return reachingEdge;
+        return this.reachingEdge;
     }
 
     public void setVisited(boolean b) {
