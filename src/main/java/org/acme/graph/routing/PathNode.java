@@ -21,7 +21,7 @@ public class PathNode {
         return cost;
     }
 
-    public void setReachingEdge(Object o) {
+    public void setReachingEdge(Edge reachingEdge) {
         this.reachingEdge = reachingEdge;
     }
     @JsonIgnore
